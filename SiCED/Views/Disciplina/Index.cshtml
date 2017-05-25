@@ -1,0 +1,42 @@
+﻿@model PagedList.IPagedList<SiCED.Models.Disciplina>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Disciplina cadastradas</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Disciplina", "Create")
+</p>
+
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-success">@TempData["Mensagem"]</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Edita", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageNumber
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page}))

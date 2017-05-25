@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<SiCED.Models.Matricula>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Matriculas</h2>
+
+<form method="get" action="/Matricula/ConsultarTurma">
+    <p>
+        <input type="search" name="NomeTurma" />
+        <input type="submit" value="Pesquisar" /> <input type="submit" value="Mostrar Todos" />
+    </p>
+
+</form>
+
+
+
+<p>
+    @Html.ActionLink("Cadastrar Matricula", "Create")
+</p>
+
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-success">@TempData["Mensagem"]</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Aluno")
+        </th>
+        <th>
+            @Html.DisplayName("Turma")
+        </th>
+        <th>
+            @Html.DisplayName("DataDeMatricula")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aluno.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Turma.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataDeMatricula)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageNumber
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page}))

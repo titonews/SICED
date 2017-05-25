@@ -1,0 +1,93 @@
+﻿@model PagedList.IPagedList<SiCED.Models.Professor>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de professores cadastrados</h2>
+
+<form method="get" action="/Professor/ConsultarProfessor">
+    <p>
+        <input type="search" name="NomeProfessor" />
+        <input type="submit" value="Pesquisar" /> <input type="submit" value="Mostrar Todos" />
+    </p>
+
+</form>
+
+<p>
+    @Html.ActionLink("Cadastrar professor", "Create")
+</p>
+
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-success">@TempData["Mensagem"]</p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Nome", "Index", new { ordenacao = ViewBag.NomeParam })
+        </th>
+        <th>
+           @Html.ActionLink("CPF", "Index", new { ordenacao = ViewBag.CpfParam })
+        </th>
+        <th>
+            @Html.DisplayName("DataNascimento")
+        </th>
+        <th>
+            @Html.DisplayName("Endereco")
+        </th>
+        <th>
+            @Html.DisplayName("Bairro")
+        </th>
+        <th>
+            @Html.DisplayName("CEP")
+        </th>
+        <th>
+            @Html.DisplayName("Celular")
+        </th>
+        <th>
+            @Html.DisplayName("TelefoneFixo")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bairro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefoneFixo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ProfessorId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ProfessorId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ProfessorId })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageNumber
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page, ordenacao = ViewBag.OrdenacaoAtual }))

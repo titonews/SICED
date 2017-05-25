@@ -1,0 +1,102 @@
+﻿@model PagedList.IPagedList<SiCED.Models.Turma>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Turmas cadastradas</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Turma", "Create")
+</p>
+
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-success">@TempData["Mensagem"]</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Curso")
+        </th>
+        <th>
+            @Html.DisplayName("Disciplina")
+        </th>
+        <th>
+            @Html.DisplayName("Professor")
+        </th>
+        <th>
+            @Html.DisplayName("Descriçao")
+        </th>
+        <th>
+            @Html.DisplayName("ValorMensal")
+        </th>
+        <th>
+            @Html.DisplayName("HorarioInicial")
+        </th>
+        <th>
+            @Html.DisplayName("HorarioFinal")
+        </th>
+        <th>
+            @Html.DisplayName("SegundaQuarta")
+        </th>
+        <th>
+            @Html.DisplayName("SegundaQuartaSexta")
+        </th>
+        <th>
+            @Html.DisplayName("TercaQuinta")
+        </th>
+        <th>
+            @Html.DisplayName("TercaQuintaSexta")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Curso.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Disciplina.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Professor.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorMensal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorarioInicial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorarioFinal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegundaQuarta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegundaQuartaSexta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TercaQuinta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TercaQuintaSexta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageNumber
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page, ordenacao = ViewBag.OrdenacaoAtual }))

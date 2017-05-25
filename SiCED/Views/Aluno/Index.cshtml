@@ -1,0 +1,74 @@
+﻿@model PagedList.IPagedList<SiCED.Models.Aluno>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Alunos cadastrados</h2>
+
+<form method="get" action="/Aluno/ConsultarAluno">
+    <p>
+        <input type="search" name="NomeAluno" />
+        <input type="submit" value="Pesquisar" /> <input type="submit" value="Mostrar Todos" />
+    </p>
+
+</form>
+
+<p>
+    @Html.ActionLink("Cadastrar Aluno", "Create")
+</p>
+
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-success">@TempData["Mensagem"]</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Responsaveis")
+        </th>
+        <th>
+            @Html.ActionLink("Nome", "Index", new { ordenacao = ViewBag.NomeParam })
+        </th>
+        <th>
+           @Html.ActionLink("CPF", "Index", new { ordenacao = ViewBag.CpfParam })
+        </th>
+        <th>
+            @Html.DisplayName("Celular")
+        </th>
+        <th>
+            @Html.DisplayName("DataNascimento")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Responsaveis.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.AlunoId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.AlunoId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.AlunoId })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageNumber
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page, ordenacao = ViewBag.OrdenacaoAtual }))

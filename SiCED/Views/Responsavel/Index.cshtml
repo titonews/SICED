@@ -1,0 +1,95 @@
+﻿@model PagedList.IPagedList<SiCED.Models.Responsavel>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Responsaveis cadastrados</h2>
+
+<form method="get" action="/Responsavel/ConsultarResponsavel">
+    <p>
+        
+        <input id="" class="form-control" placeholder="Pesquise..." name="NomeResponsavel" required="" autofocus="" type="search">
+        <button type="submit" value="Mostrar Todos" class="btn btn-sm btn-default">Mostrar Todos</button>
+        <button type="submit" value="Pesquisar" class="btn btn-sm btn-default">Pesquisar</button>
+
+    </p>
+
+</form>
+
+<p>
+    @Html.ActionLink("Cadastrar Responsavel", "Create")
+</p>
+
+@if (TempData["Mensagem"] != null)
+{
+    <p class="alert-success">@TempData["Mensagem"]</p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+           @Html.ActionLink("Nome", "Index", new { ordenacao = ViewBag.NomeParam })
+        </th>
+        <th>
+            @Html.ActionLink("CPF", "Index", new { ordenacao = ViewBag.CpfParam })
+        </th>
+        <th>
+            @Html.DisplayName("Endereco")
+        </th>
+        <th>
+            @Html.DisplayName("CEP")
+        </th>
+        <th>
+            @Html.DisplayName("Bairro")
+        </th>
+        <th>
+            @Html.DisplayName("Cidade")
+        </th>
+        <th>
+            @Html.DisplayName("Celular")
+        </th>
+        <th>
+            @Html.DisplayName("TelefoneFixo")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bairro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cidade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Celular)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelefoneFixo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ResponsavelId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ResponsavelId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ResponsavelId })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageNumber
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page, ordenacao = ViewBag.OrdenacaoAtual }))
