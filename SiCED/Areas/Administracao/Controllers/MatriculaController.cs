@@ -10,7 +10,7 @@ using SiCED.Models;
 using PagedList;
 using Rotativa;
 
-namespace SiCED.Controllers
+namespace Areas.Administracao.Controllers
 {
     public class MatriculaController : Controller
     {

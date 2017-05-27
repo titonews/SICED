@@ -7,114 +7,126 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SiCED.Models;
+using PagedList;
 
-namespace SiCED.Controllers
+namespace Areas.Administracao.Controllers
 {
-    public class CursoController : Controller
+    public class DisciplinaController : Controller
     {
         private ContextoEF db = new ContextoEF();
 
-        // GET: Curso
-        public ActionResult Index()
+        // GET: Disciplina
+        public ActionResult Index(int? pagina)
         {
-            return View(db.Cursos.ToList());
+            try
+            {
+                int tamanhoPagina = 5;
+                int numeroPagina = pagina ?? 1; 
+
+            return View(db.Disciplinas.OrderBy(p => p.Nome).ToPagedList(numeroPagina, tamanhoPagina));
+            }
+            catch(Exception err)
+            {
+                ViewBag.DetalheErros = err.Message.ToString();
+                return View("Error");
+            }
         }
 
-        // GET: Curso/Details/5
+        // GET: Disciplina/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
-            if (curso == null)
+            Disciplina disciplina = db.Disciplinas.Find(id);
+            if (disciplina == null)
             {
                 return HttpNotFound();
             }
-            return View(curso);
+            return View(disciplina);
         }
 
-        // GET: Curso/Create
+        // GET: Disciplina/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Curso/Create
+        // POST: Disciplina/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Nome")] Curso curso)
+        public ActionResult Create([Bind(Include = "Id,Nome")] Disciplina disciplina)
         {
             if (ModelState.IsValid)
             {
-                db.Cursos.Add(curso);
+                db.Disciplinas.Add(disciplina);
                 db.SaveChanges();
-                TempData["Mensagem"] = "Curso cadastrado com sucesso! ";
+                TempData["Mensagem"] = "Disciplina Cadastrado com sucesso! ";
                 return RedirectToAction("Index");
             }
 
-            return View(curso);
+            return View(disciplina);
         }
 
-        // GET: Curso/Edit/5
+        // GET: Disciplina/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
-            if (curso == null)
+            Disciplina disciplina = db.Disciplinas.Find(id);
+            if (disciplina == null)
             {
                 return HttpNotFound();
             }
-            return View(curso);
+            return View(disciplina);
         }
 
-        // POST: Curso/Edit/5
+        // POST: Disciplina/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Nome")] Curso curso)
+        public ActionResult Edit([Bind(Include = "Id,Nome")] Disciplina disciplina)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(curso).State = EntityState.Modified;
+                db.Entry(disciplina).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData["Mensagem"] = "Curso atualizado com sucesso! ";
+                TempData["Mensagem"] = "Disciplina atualizado com sucesso! ";
                 return RedirectToAction("Index");
             }
-            return View(curso);
+            return View(disciplina);
         }
 
-        // GET: Curso/Delete/5
+        // GET: Disciplina/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Curso curso = db.Cursos.Find(id);
-            if (curso == null)
+            Disciplina disciplina = db.Disciplinas.Find(id);
+            if (disciplina == null)
             {
                 return HttpNotFound();
             }
-            return View(curso);
+            return View(disciplina);
         }
 
-        // POST: Curso/Delete/5
+        // POST: Disciplina/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Curso curso = db.Cursos.Find(id);
-            db.Cursos.Remove(curso);
+            Disciplina disciplina = db.Disciplinas.Find(id);
+            db.Disciplinas.Remove(disciplina);
             db.SaveChanges();
-            TempData["Mensagem"] = "Curso excluido com sucesso! ";
+            TempData["Mensagem"] = "Disciplina excluida com sucesso! ";
             return RedirectToAction("Index");
         }
 

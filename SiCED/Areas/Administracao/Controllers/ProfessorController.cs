@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using SiCED.Models;
 using PagedList;
 
-namespace SiCED.Controllers
+namespace Areas.Administracao.Controllers
 {
     public class ProfessorController : Controller
     {

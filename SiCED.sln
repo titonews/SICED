@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiCED", "SiCED\SiCED.csproj", "{838ABE96-19F6-4513-880D-9F9F2770DF8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteAutomatizado", "..\TesteAutomatizado\TesteAutomatizado\TesteAutomatizado.csproj", "{F1BD83D5-2D0C-4DEE-BEE9-942F56D94BEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{838ABE96-19F6-4513-880D-9F9F2770DF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{838ABE96-19F6-4513-880D-9F9F2770DF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{838ABE96-19F6-4513-880D-9F9F2770DF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1BD83D5-2D0C-4DEE-BEE9-942F56D94BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1BD83D5-2D0C-4DEE-BEE9-942F56D94BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1BD83D5-2D0C-4DEE-BEE9-942F56D94BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1BD83D5-2D0C-4DEE-BEE9-942F56D94BEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

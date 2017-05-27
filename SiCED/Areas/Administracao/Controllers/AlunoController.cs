@@ -9,33 +9,33 @@ using System.Web.Mvc;
 using SiCED.Models;
 using PagedList;
 
-namespace SiCED.Controllers
+namespace Areas.Administracao.Controllers
 {
-    public class ResponsavelController : Controller
+    public class AlunoController : Controller
     {
         private ContextoEF db = new ContextoEF();
 
-        public ActionResult ConsultarResponsavel(int? pagina, string nomeResponsavel = null)
+        public ActionResult ConsultarAluno(int? pagina, string nomeAluno = null)
         {
             int tamanhoPagina = 5;
             int numeroPagina = pagina ?? 1;
-            var responsavel = new Object();
+            var aluno = new Object();
 
-            if (!String.IsNullOrEmpty(nomeResponsavel))
+            if (!String.IsNullOrEmpty(nomeAluno))
             {
-                responsavel = db.Responsaveis
-                    .Where(c => c.Nome.ToUpper().Contains(nomeResponsavel.ToUpper()))
+                aluno = db.Alunos
+                    .Where(c => c.Nome.ToUpper().Contains(nomeAluno.ToUpper()))
                     .OrderBy(c => c.Nome)
                     .ToPagedList(numeroPagina, tamanhoPagina);
             }
             else
             {
-                responsavel = db.Responsaveis.OrderBy(p => p.Nome).ToPagedList(numeroPagina, tamanhoPagina);
+                aluno = db.Alunos.OrderBy(p => p.Nome).ToPagedList(numeroPagina, tamanhoPagina);
             }
-            return View("Index", responsavel);
+            return View("Index", aluno);
         }
 
-        // GET: Responsavel
+        // GET: Aluno
         public ActionResult Index(string ordenacao, int? pagina)
         {
             try
@@ -44,133 +44,138 @@ namespace SiCED.Controllers
                 ViewBag.NomeParam = String.IsNullOrEmpty(ordenacao) ? "Nome_desc" : "";
                 ViewBag.CpfParam = ordenacao == "CPF" ? "CPF_desc" : "CPF";
 
-                var responsavel = from c in db.Responsaveis select c;
+                var alunos = from c in db.Alunos select c;
 
-                int tamanhoPagina = 5;
+                int tamnahoPagina = 5;
                 int numeroPagina = pagina ?? 1;
 
                 switch (ordenacao)
                 {
                     case "Nome_desc":
-                        responsavel = responsavel.OrderByDescending(s => s.Nome);
+                        alunos = alunos.OrderByDescending(s => s.Nome);
                         break;
                     case "CPF":
-                        responsavel = responsavel.OrderBy(s => s.CPF);
+                        alunos = alunos.OrderBy(s => s.CPF);
                         break;
                     case "CPF_desc":
-                        responsavel = responsavel.OrderByDescending(s => s.CPF);
+                        alunos = alunos.OrderByDescending(s => s.CPF);
                         break;
                     default:
-                        responsavel = responsavel.OrderBy(s => s.Nome);
+                        alunos = alunos.OrderBy(s => s.Nome);
                         break;
                 }
 
-                // return View(db.Responsaveis.OrderBy(p => p.Nome).ToPagedList(numeroPagina, tamanhoPagina));
-                return View(responsavel.ToPagedList(numeroPagina, tamanhoPagina));
+                //var alunos = db.Alunos.Include(a => a.Responsaveis);
+                // return View(db.Alunos.OrderBy(p => p.Nome).ToPagedList(numeroPagina, tamnahoPagina));
+                return View(alunos.ToPagedList(numeroPagina, tamnahoPagina));
             }
 
-            catch (Exception err)
+            catch(Exception err)
             {
                 ViewBag.DetalheErros = err.Message.ToString();
                 return View("Error");
             }
         }
 
-        // GET: Responsavel/Details/5
+        // GET: Aluno/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Responsavel responsavel = db.Responsaveis.Find(id);
-            if (responsavel == null)
+            Aluno aluno = db.Alunos.Find(id);
+            if (aluno == null)
             {
                 return HttpNotFound();
             }
-            return View(responsavel);
+            return View(aluno);
         }
 
-        // GET: Responsavel/Create
+        // GET: Aluno/Create
         public ActionResult Create()
         {
+            ViewBag.ResponsavelId = new SelectList(db.Responsaveis, "ResponsavelId", "Nome");
             return View();
         }
 
-        // POST: Responsavel/Create
+        // POST: Aluno/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ResponsavelId,Nome,CPF,Endereco,CEP,Bairro,Cidade,Celular,TelefoneFixo")] Responsavel responsavel)
+        public ActionResult Create([Bind(Include = "AlunoId,ResponsavelId,Nome,CPF,Celular,DataNascimento")] Aluno aluno)
         {
             if (ModelState.IsValid)
             {
-                db.Responsaveis.Add(responsavel);
+                db.Alunos.Add(aluno);
                 db.SaveChanges();
-                TempData["Mensagem"] = "Responsavel Cadastrado com sucesso! ";
+                TempData["Mensagem"] = "Aluno cadastrado com sucesso! ";
                 return RedirectToAction("Index");
             }
 
-            return View(responsavel);
+            ViewBag.ResponsavelId = new SelectList(db.Responsaveis, "ResponsavelId", "Nome", aluno.ResponsavelId);
+            return View(aluno);
         }
 
-        // GET: Responsavel/Edit/5
+        // GET: Aluno/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Responsavel responsavel = db.Responsaveis.Find(id);
-            if (responsavel == null)
+            Aluno aluno = db.Alunos.Find(id);
+            if (aluno == null)
             {
                 return HttpNotFound();
             }
-            return View(responsavel);
+            ViewBag.ResponsavelId = new SelectList(db.Responsaveis, "ResponsavelId", "Nome", aluno.ResponsavelId);
+            return View(aluno);
         }
 
-        // POST: Responsavel/Edit/5
+        // POST: Aluno/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ResponsavelId,Nome,CPF,Endereco,CEP,Bairro,Cidade,Celular,TelefoneFixo")] Responsavel responsavel)
+        public ActionResult Edit([Bind(Include = "AlunoId,ResponsavelId,Nome,CPF,Celular,DataNascimento")] Aluno aluno)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(responsavel).State = EntityState.Modified;
+                db.Entry(aluno).State = EntityState.Modified;
                 db.SaveChanges();
-                TempData["Mensagem"] = "Responsavel atualizado com sucesso! ";
+                TempData["Mensagem"] = "Aluno atualizado com sucesso! ";
                 return RedirectToAction("Index");
             }
-            return View(responsavel);
+            ViewBag.ResponsavelId = new SelectList(db.Responsaveis, "ResponsavelId", "Nome", aluno.ResponsavelId);
+            return View(aluno);
         }
 
-        // GET: Responsavel/Delete/5
+        // GET: Aluno/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Responsavel responsavel = db.Responsaveis.Find(id);
-            if (responsavel == null)
+            Aluno aluno = db.Alunos.Find(id);
+            if (aluno == null)
             {
                 return HttpNotFound();
             }
-            return View(responsavel);
+            return View(aluno);
         }
 
-        // POST: Responsavel/Delete/5
+        // POST: Aluno/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Responsavel responsavel = db.Responsaveis.Find(id);
-            db.Responsaveis.Remove(responsavel);
+            Aluno aluno = db.Alunos.Find(id);
+            db.Alunos.Remove(aluno);
             db.SaveChanges();
-            TempData["Mensagem"] = "Responsavel excluido com sucesso! ";
+            TempData["Mensagem"] = "Aluno excluido com sucesso! ";
             return RedirectToAction("Index");
         }
 
