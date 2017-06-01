@@ -64,16 +64,34 @@
                     <li>
                         <a class="page-scroll" href="@Url.Action("Index","Disciplina")">Disciplinas</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="@Url.Action("Index","Matricula")">Matricular</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="@Url.Action("Index","Turma")">Turmas</a>
-                    </li>
+
+                    @if (Request.IsAuthenticated)
+                    {
+
+                        if (User.IsInRole("Administrador"))
+                        {
+
+                            <li>
+                                <a class="page-scroll" href="@Url.Action("Index","Matricula")">Matricular</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="@Url.Action("Index","Turma")">Turmas</a>
+                            </li>
+
+                        }
+
+                    }
+
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
+                    <li>
+                        <!-- Chama arquivo parcial de links de entrar(LogIn) e sair(LogOff) -->
+                        @Html.Partial("_LoginPartial")
+                    </li>
                 </ul>
+
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
