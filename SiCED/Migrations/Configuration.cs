@@ -16,7 +16,7 @@ namespace SiCED.Migrations
         }
 
         protected override void Seed(SiCED.Models.ContextoEF context)
-        //{
+        {
         //    context.Cursos.AddOrUpdate(
         //          p => p.Nome,
         //          new Curso { Nome = "Ballet" },
