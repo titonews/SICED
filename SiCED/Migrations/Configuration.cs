@@ -16,47 +16,47 @@ namespace SiCED.Migrations
         }
 
         protected override void Seed(SiCED.Models.ContextoEF context)
-        {
-            //context.Cursos.AddOrUpdate(
-            //      p => p.Nome,
-            //      new Curso { Nome = "Ballet" },
-            //          new Curso { Nome = "Street Dance" },
-            //          new Curso { Nome = "Sapateado" },
-            //          new Curso { Nome = "Jazz" },
-            //          new Curso { Nome = "Barra-Chão" }
-            //    );
+        //{
+        //    context.Cursos.AddOrUpdate(
+        //          p => p.Nome,
+        //          new Curso { Nome = "Ballet" },
+        //              new Curso { Nome = "Street Dance" },
+        //              new Curso { Nome = "Sapateado" },
+        //              new Curso { Nome = "Jazz" },
+        //              new Curso { Nome = "Barra-Chão" }
+        //        );
 
-            //context.Disciplinas.AddOrUpdate(
-            //      p => p.Nome,
-            //      new Disciplina { Nome = "Baby" },
-            //      new Disciplina { Nome = "Pré-Primary" },
-            //      new Disciplina { Nome = "Primary" },
-            //      new Disciplina { Nome = "1°Grau" },
-            //      new Disciplina { Nome = "2°Grau" },
-            //      new Disciplina { Nome = "3°Grau" },
-            //      new Disciplina { Nome = "4°Grau" },
-            //      new Disciplina { Nome = "5°Grau" },
-            //      new Disciplina { Nome = "6°Grau" },
-            //      new Disciplina { Nome = "Básico I" },
-            //      new Disciplina { Nome = "Básico II" },
-            //      new Disciplina { Nome = "Pré-Elementary(Infantil)" },
-            //      new Disciplina { Nome = "Pré-Elementary(Adulto)" },
-            //      new Disciplina { Nome = "Elementary" },
-            //      new Disciplina { Nome = "Sênior" },
-            //      new Disciplina { Nome = "Master" },
-            //      new Disciplina { Nome = "Advanced I" },
-            //      new Disciplina { Nome = "Inter/Avançado" },
-            //      new Disciplina { Nome = "Sênior" },
-            //      new Disciplina { Nome = "Iniciante" },
-            //      new Disciplina { Nome = "Master e Advanced" },
-            //      new Disciplina { Nome = "Mesclado" },
-            //      new Disciplina { Nome = "Intermediário" },
-            //      new Disciplina { Nome = "Lírico" },
-            //      new Disciplina { Nome = "Avançado" },
-            //      new Disciplina { Nome = "StreetNivel II" },
-            //      new Disciplina { Nome = "StreetNivel III" }
+        //    context.Disciplinas.AddOrUpdate(
+        //          p => p.Nome,
+        //          new Disciplina { Nome = "Baby" },
+        //          new Disciplina { Nome = "Pré-Primary" },
+        //          new Disciplina { Nome = "Primary" },
+        //          new Disciplina { Nome = "1°Grau" },
+        //          new Disciplina { Nome = "2°Grau" },
+        //          new Disciplina { Nome = "3°Grau" },
+        //          new Disciplina { Nome = "4°Grau" },
+        //          new Disciplina { Nome = "5°Grau" },
+        //          new Disciplina { Nome = "6°Grau" },
+        //          new Disciplina { Nome = "Básico I" },
+        //          new Disciplina { Nome = "Básico II" },
+        //          new Disciplina { Nome = "Pré-Elementary(Infantil)" },
+        //          new Disciplina { Nome = "Pré-Elementary(Adulto)" },
+        //          new Disciplina { Nome = "Elementary" },
+        //          new Disciplina { Nome = "Sênior" },
+        //          new Disciplina { Nome = "Master" },
+        //          new Disciplina { Nome = "Advanced I" },
+        //          new Disciplina { Nome = "Inter/Avançado" },
+        //          new Disciplina { Nome = "Sênior" },
+        //          new Disciplina { Nome = "Iniciante" },
+        //          new Disciplina { Nome = "Master e Advanced" },
+        //          new Disciplina { Nome = "Mesclado" },
+        //          new Disciplina { Nome = "Intermediário" },
+        //          new Disciplina { Nome = "Lírico" },
+        //          new Disciplina { Nome = "Avançado" },
+        //          new Disciplina { Nome = "StreetNivel II" },
+        //          new Disciplina { Nome = "StreetNivel III" }
 
-            //    );
+        //        );
 
             //context.Professores.AddOrUpdate(
             //      p => p.Nome,
