@@ -23,6 +23,7 @@ namespace SiCED.Models
         public ApplicationDbContext()
             : base("StrConexao", throwIfV1Schema: false)
         {
+
         }
 
         public static ApplicationDbContext Create()
