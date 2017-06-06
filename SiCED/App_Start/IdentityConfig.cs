@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using SiCED.Models;
+using Areas.Administracao.Models;
 
 namespace SiCED
 {
@@ -42,16 +43,46 @@ namespace SiCED
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var UserManager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context.Get<ApplicationDbContext>()));
+
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<ApplicationUser>(manager)
+            UserManager.UserValidator = new UserValidator<ApplicationUser>(UserManager)
             {
                 AllowOnlyAlphanumericUserNames = false,
                 RequireUniqueEmail = true
             };
 
+            var myinfo = new MyUserInfo() {
+                FirstName = "Fulano",
+                LastName = "Silva"
+            };
+            string roleAdministrador = "Administrador";
+            string senha = "123456";
+
+            //Create Role Admin if it does not exist
+            if (!RoleManager.RoleExists(roleAdministrador))
+            {
+                var roleresult = RoleManager.Create(new IdentityRole(roleAdministrador));
+            }
+
+            //Create User=Admin with password=123456
+            var usuario = new ApplicationUser();
+            usuario.UserName = "admin@admin.com.br";
+            usuario.HomeTown = "Cuiabá";
+            usuario.MyUserInfo = myinfo;
+            usuario.Email = "admin@admin.com.br";
+            var adminresult = UserManager.Create(usuario, senha);
+
+            //Add User Admin to Role Admin
+            if (adminresult.Succeeded)
+            {
+                var result = UserManager.AddToRole(usuario.Id, roleAdministrador);
+            }
+
+
             // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
+            UserManager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = false,
@@ -61,30 +92,30 @@ namespace SiCED
             };
 
             // Configure user lockout defaults
-            manager.UserLockoutEnabledByDefault = true;
-            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
-            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+            UserManager.UserLockoutEnabledByDefault = true;
+            UserManager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
+            UserManager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
+            UserManager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
             {
                 MessageFormat = "Your security code is {0}"
             });
-            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
+            UserManager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<ApplicationUser>
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
             });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
+            UserManager.EmailService = new EmailService();
+            UserManager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                UserManager.UserTokenProvider = 
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
-            return manager;
+            return UserManager;
         }
     }
 

@@ -209,6 +209,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administracao\AdministracaoAreaRegistration.cs" />
+    <Compile Include="Areas\Administracao\Controllers\AccountController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\BaseController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\CalendarController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\DashboardController.cs" />
@@ -219,8 +220,19 @@
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\TablesController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\UIElementsController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AceTemplateAdmin\WidgetsController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ClaimsIdentityFactoryController.cs" />
     <Compile Include="Areas\Administracao\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\RolesAdminController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ToDoController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\UserAdminController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\ValidationController.cs" />
     <Compile Include="Areas\Administracao\Extensions\HtmlRequestHelper.cs" />
+    <Compile Include="Areas\Administracao\IdentityExtensions\MyClaimsIdentityFactory.cs" />
+    <Compile Include="Areas\Administracao\IdentityExtensions\MyValidation.cs" />
+    <Compile Include="Areas\Administracao\Models\AccountViewModels.cs" />
+    <Compile Include="Areas\Administracao\Models\AdminViewModel.cs" />
+    <Compile Include="Areas\Administracao\Models\AppModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Administracao\Controllers\AlunoController.cs" />
     <Compile Include="Areas\Administracao\Controllers\CursoController.cs" />
@@ -526,6 +538,25 @@
     <Content Include="Areas\Administracao\Views\Shared\NavigatorBarList - Cópia .cshtml" />
     <Content Include="Areas\Administracao\Views\Home\Detalhes.cshtml" />
     <Content Include="Areas\Administracao\Views\Home\Usuarios.cshtml" />
+    <Content Include="Areas\Administracao\Views\ClaimsIdentityFactory\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\RolesAdmin\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\RolesAdmin\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\RolesAdmin\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\RolesAdmin\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\RolesAdmin\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\ToDo\All.cshtml" />
+    <Content Include="Areas\Administracao\Views\ToDo\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\ToDo\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\ToDo\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\ToDo\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\ToDo\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\UsersAdmin\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\UsersAdmin\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\UsersAdmin\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\UsersAdmin\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Validation\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\Profile\Index.cshtml" />
     <None Include="Views\Shared\_LayoutPadrao.cshtml" />
     <Content Include="js\creative.js" />
     <Content Include="js\creative.min.js" />
@@ -697,7 +728,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administracao\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
