@@ -1,10 +1,10 @@
 ﻿@model Areas.Administracao.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Adicionar Usuário";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
+    <h1>@ViewBag.Title</h1>
 </hgroup>
 
 @using (Html.BeginForm())
@@ -13,7 +13,7 @@
     @Html.ValidationSummary()
 
     <fieldset class="form-horizontal">
-        <legend>Create a new user.</legend>
+        <legend>Dados de Acesso</legend>
         <div class="control-group">
             @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
             <div class="controls">
@@ -39,11 +39,11 @@
                 @Html.TextBoxFor(m => m.HomeTown)
             </div>
         </div>
-        <h4>Select Role for User</h4>
+        <h4>Selecione a Função</h4>
         <hr />
-        @Html.DropDownList("RoleId","No Roles")
+        @Html.DropDownList("RoleId", "Selecione")
         <div class="form-actions no-color">
-            <input type="submit" value="Create" class="btn" />
+            <input type="submit" value="Salvar" class="btn" />
         </div>
     </fieldset>
 }

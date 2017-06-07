@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalhes do Usuário</h2>
 
 <div>
-    <h4>User</h4>
+    <h4>Usuário</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -24,20 +24,20 @@
         </dd>
     </dl>
 </div>
-<h4>List Of Roles</h4>
+<h4>Lista de Funções</h4>
 <table class="table table-striped">
 
     @foreach (var item in Model.Roles)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Role.Name)
+                @Html.DisplayFor(modelItem => item.RoleId)
             </td>
         </tr>
     }
 </table>
 
-<h4>List Of Logins</h4>
+<h4>Lista de Logins</h4>
 <table class="table table-striped">
 
     @foreach (var item in Model.Logins)
@@ -52,8 +52,8 @@
 </table>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Atualizar", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Voltar", "Index")
 </p>
 
 

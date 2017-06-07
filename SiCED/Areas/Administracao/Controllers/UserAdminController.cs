@@ -1,17 +1,11 @@
-﻿using Areas.Administracao.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Net;
 using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
 using SiCED.Models;
 
 namespace Areas.Administracao.Controllers
@@ -36,15 +30,11 @@ namespace Areas.Administracao.Controllers
         public RoleManager<IdentityRole> RoleManager { get; private set; }
         public ApplicationDbContext context { get; private set; }
 
-        //
-        // GET: /Users/
         public async Task<ActionResult> Index()
         {
             return View(await UserManager.Users.ToListAsync());
         }
 
-        //
-        // GET: /Users/Details/5
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -55,8 +45,6 @@ namespace Areas.Administracao.Controllers
             return View(user);
         }
 
-        //
-        // GET: /Users/Create
         public async Task<ActionResult> Create()
         {
             //Get the list of Roles
@@ -64,8 +52,6 @@ namespace Areas.Administracao.Controllers
             return View();
         }
 
-        //
-        // POST: /Users/Create
         [HttpPost]
         public async Task<ActionResult>  Create(Areas.Administracao.Models.RegisterViewModel userViewModel, string RoleId)
         {
@@ -108,8 +94,6 @@ namespace Areas.Administracao.Controllers
             }
         }
 
-        //
-        // GET: /Users/Edit/1
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
@@ -126,8 +110,6 @@ namespace Areas.Administracao.Controllers
             return View(user);
         }
 
-        //
-        // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "UserName,Id,HomeTown")] ApplicationUser formuser, string id, string RoleId)

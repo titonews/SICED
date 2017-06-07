@@ -1,14 +1,8 @@
 ﻿using Areas.Administracao.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
 using System.Threading.Tasks;
-using System.Threading;
 using System.Net;
 using Microsoft.AspNet.Identity;
 using SiCED.Models;
@@ -34,15 +28,12 @@ namespace Areas.Administracao.Controllers
         public UserManager<ApplicationUser> UserManager { get; private set; }
         public RoleManager<IdentityRole> RoleManager { get; private set; }
         public ApplicationDbContext context { get; private set; }
-        //
-        // GET: /Roles/
+
         public async Task<ActionResult> Index()
         {
             return View(RoleManager.Roles);
         }
 
-        //
-        // GET: /Roles/Details/5
         public async Task<ActionResult> Details(string id)
         {
             if (id == null)
@@ -53,15 +44,11 @@ namespace Areas.Administracao.Controllers
             return View(role);
         }
 
-        //
-        // GET: /Roles/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        //
-        // POST: /Roles/Create
         [HttpPost]
         public async Task<ActionResult> Create(RoleViewModel roleViewModel)
         {
@@ -82,8 +69,6 @@ namespace Areas.Administracao.Controllers
             }
         }
 
-        //
-        // GET: /Roles/Edit/Admin
         public async Task<ActionResult> Edit(string id)
         {
             if (id == null)
@@ -98,12 +83,9 @@ namespace Areas.Administracao.Controllers
             return View(role);
         }
 
-        //
-        // POST: /Roles/Edit/5
         [HttpPost]
-
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Name,Id")] IdentityRole role)
+        public async Task<ActionResult> Edit(IdentityRole role)
         {
             if (ModelState.IsValid)
             {
@@ -121,8 +103,6 @@ namespace Areas.Administracao.Controllers
             }
         }
 
-        //
-        // GET: /Roles/Delete/5
         public async Task<ActionResult> Delete(string id)
         {
             if (id == null)
@@ -137,8 +117,6 @@ namespace Areas.Administracao.Controllers
             return View(role);
         }
 
-        //
-        // POST: /Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(string id)
