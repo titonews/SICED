@@ -10,7 +10,7 @@ using SiCED.Models;
 
 namespace Areas.Administracao.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     public class UsersAdminController : Controller
     {
         public UsersAdminController()

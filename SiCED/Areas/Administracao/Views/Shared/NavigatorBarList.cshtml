@@ -1,124 +1,128 @@
 ﻿<ul class="nav nav-list">
-    <li class="">
-        <a href="@Url.Action("Index", "Home")">
-            <i class="menu-icon fa fa-pencil"></i>
-            <span class="menu-text"> Página Principal </span>
-        </a>
 
-        <b class="arrow"></b>
-    </li>
+        @if (User.IsInRole("Administrador"))
+        {
+                <li class="">
+                    <a href="@Url.Action("Index", "Home")">
+                        <i class="menu-icon fa fa-pencil"></i>
+                        <span class="menu-text"> Página Principal </span>
+                    </a>
 
-    <li class="">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-desktop"></i>
-            <span class="menu-text">
-                Alunos
-            </span>
+                    <b class="arrow"></b>
+                </li>
 
-            <b class="arrow fa fa-angle-down"></b>
-        </a>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-desktop"></i>
+                        <span class="menu-text">
+                            Alunos
+                        </span>
 
-        <b class="arrow"></b>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
 
-        <ul class="submenu">
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
             
-            <li class="">
-                <a href="@Url.Action("Create", "Aluno")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Cadastrar
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("Create", "Aluno")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Cadastrar
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("Edit", "Aluno")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Editar
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("Edit", "Aluno")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Editar
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("Delete", "Aluno")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Excluir
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("Delete", "Aluno")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Excluir
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("ContentSliders", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Content Sliders
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("ContentSliders", "UIElements")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Content Sliders
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("TreeView", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Treeview
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("TreeView", "UIElements")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Treeview
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("JQueryUI", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    jQuery UI
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("JQueryUI", "UIElements")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                jQuery UI
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("NestableLists", "UIElements")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Nestable Lists
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("NestableLists", "UIElements")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Nestable Lists
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
             
-        </ul>
-    </li>
+                    </ul>
+                </li>
 
-    <li class="">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-list"></i>
-            <span class="menu-text"> Responsavel </span>
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-list"></i>
+                        <span class="menu-text"> Responsavel </span>
 
-            <b class="arrow fa fa-angle-down"></b>
-        </a>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
 
-        <b class="arrow"></b>
+                    <b class="arrow"></b>
 
-        <ul class="submenu">
-            <li class="">
-                <a href="@Url.Action("Index", "Responsavel")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Responsaveis
-                </a>
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="@Url.Action("Index", "Responsavel")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Responsaveis
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
+                            <b class="arrow"></b>
+                        </li>
 
-            <li class="">
-                <a href="@Url.Action("Create", "Responsavel")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Cadastrar
-                </a>
+                        <li class="">
+                            <a href="@Url.Action("Create", "Responsavel")">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Cadastrar
+                            </a>
 
-                <b class="arrow"></b>
-            </li>
-        </ul>
-    </li>
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+        }
 
     <li class="">
         <a href="#" class="dropdown-toggle">
