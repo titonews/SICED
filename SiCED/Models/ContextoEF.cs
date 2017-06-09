@@ -20,6 +20,7 @@ namespace SiCED.Models
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Matricula> Matriculas { get; set; }
+        public DbSet<TurmaAlunoView> TurmaAlunosViewa { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

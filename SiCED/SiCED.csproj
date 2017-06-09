@@ -265,6 +265,7 @@
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Models\Responsavel.cs" />
     <Compile Include="Models\Turma.cs" />
+    <Compile Include="Models\TurmaAlunoView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
