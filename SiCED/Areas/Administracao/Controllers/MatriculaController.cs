@@ -34,7 +34,6 @@ namespace Areas.Administracao.Controllers
         {
             int tamanhoPagina = 5;
             int numeroPagina = pagina ?? 1;
-            var turma = new Object();
 
             if (!String.IsNullOrEmpty(NomeTurma))
             {
@@ -43,16 +42,23 @@ namespace Areas.Administracao.Controllers
                 //    .OrderBy(f => f.Turma)
                 //    .ToPagedList(numeroPagina, tamanhoPagina);
 
-                turma = db.Matriculas.Include(t=>t.Turma)
-                    .Where(m=>m.DataDeMatricula==DateTime.Now)
-                    .ToPagedList(numeroPagina, tamanhoPagina);
+               var matricula = (from a in db.Alunos
+                            join m in db.Matriculas
+                            on a.AlunoId equals m.AlunoId
+                            join t in db.Turmas
+                            on m.TurmaId equals t.Id
+                            where t.Descricao.ToUpper().Contains(NomeTurma.ToUpper())
+                            select m).ToList();
+
+                //turma = db.Matriculas.Include(t=>t.Turma).Select(t=> t)
+                //    .Where(m=>m.d)
+                //    .ToPagedList(numeroPagina, tamanhoPagina);
+                return RedirectToAction("Index", "Matricula", new { Area = "Administracao" });
+                //return View("Index", matricula.ToPagedList(numeroPagina, tamanhoPagina));
 
             }
-            else
-            {
-                turma = db.Matriculas.OrderBy(p => p.Turma.Descricao).ToPagedList(numeroPagina, tamanhoPagina);
-            }
-            return View("Index", turma);
+
+            return View("Index", db.Matriculas.OrderBy(p => p.Turma.Descricao).ToPagedList(numeroPagina, tamanhoPagina));
         }
 
 

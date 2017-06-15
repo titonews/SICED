@@ -23,8 +23,9 @@ namespace SiCED.Models
         public string Celular { get; set; }
 
         [Required]
-        [DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
+        //[DataType(DataType.Date, ErrorMessage = "Data em formato inválido")]
         [Display(Name = "Data de Nascimento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
         public virtual Responsavel Responsaveis { get; set; }
