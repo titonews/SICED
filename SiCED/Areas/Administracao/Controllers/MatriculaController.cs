@@ -12,6 +12,7 @@ using Rotativa;
 
 namespace Areas.Administracao.Controllers
 {
+
     public class MatriculaController : Controller
     {
         private ContextoEF db = new ContextoEF();
@@ -35,30 +36,24 @@ namespace Areas.Administracao.Controllers
             int tamanhoPagina = 5;
             int numeroPagina = pagina ?? 1;
 
+            var matricula = (from a in db.Alunos
+                             join m in db.Matriculas
+                             on a.AlunoId equals m.AlunoId
+                             join t in db.Turmas
+                             on m.TurmaId equals t.Id
+                              select m).ToList();
+
+
             if (!String.IsNullOrEmpty(NomeTurma))
             {
-                //turma = db.Matriculas
-                //    .Where(f => f.Turma.Descricao.Contains(NomeTurma.ToUpper()))
-                //    .OrderBy(f => f.Turma)
-                //    .ToPagedList(numeroPagina, tamanhoPagina);
-
-               var matricula = (from a in db.Alunos
-                            join m in db.Matriculas
-                            on a.AlunoId equals m.AlunoId
-                            join t in db.Turmas
-                            on m.TurmaId equals t.Id
-                            where t.Descricao.ToUpper().Contains(NomeTurma.ToUpper())
-                            select m).ToList();
-
-                //turma = db.Matriculas.Include(t=>t.Turma).Select(t=> t)
-                //    .Where(m=>m.d)
-                //    .ToPagedList(numeroPagina, tamanhoPagina);
-                return RedirectToAction("Index", "Matricula", new { Area = "Administracao" });
-                //return View("Index", matricula.ToPagedList(numeroPagina, tamanhoPagina));
+                matricula = matricula
+                    .Where(x => 
+                            x.Turma.Descricao.ToUpper()
+                            .Contains(NomeTurma.ToUpper())).ToList();
 
             }
 
-            return View("Index", db.Matriculas.OrderBy(p => p.Turma.Descricao).ToPagedList(numeroPagina, tamanhoPagina));
+              return View("Index" , matricula.OrderBy(p => p.Turma.Descricao).ToPagedList(numeroPagina, tamanhoPagina));
         }
 
 

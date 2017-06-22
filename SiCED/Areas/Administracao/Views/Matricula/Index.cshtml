@@ -7,13 +7,13 @@
 
 <h2>Lista de Matriculas</h2>
 
-<form method="get" action="/Matricula/ConsultarTurma">
+@using(Html.BeginForm("ConsultarTurma", "Matricula", FormMethod.Post, new { area = "Administracao" })) {
     <p>
         <input type="search" name="NomeTurma" />
         <input type="submit" value="Pesquisar" /> <input type="submit" value="Mostrar Todos" />
     </p>
 
-</form>
+}
 
 
 
