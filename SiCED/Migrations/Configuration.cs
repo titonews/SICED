@@ -75,13 +75,13 @@ namespace SiCED.Migrations
 
             //context.Responsaveis.AddOrUpdate(s => s.Nome,
 
-            //new Responsavel { Nome = "Patricia Souza Gomes", CPF = "98765432109", Endereco = "Rua 10, qda 18 N 25", CEP = "78068-435", Bairro = "Centro", Cidade = "Cuiabá", Celular = "(65)99981-1981", TelefoneFixo = "(65)3042-1981" }
-            //new Responsavel { Nome = "Marcia Freitas", CPF = "73912030497", Endereco = "Rua 3, qda 10 N 3", CEP = "78068-435",Bairro = "Bosque da Saude",  Cidade = "Cuiabá", Celular = "(65)99243-1234", TelefoneFixo = "(65)3032-2081", },
-            //new Responsavel { Nome = "Alexsandro Moreira", CPF = "69098000100", Endereco = "Rua 125, qda 31 N 15", CEP = "78068-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)98404-1401", TelefoneFixo = "(65)3022-1990" },
-            //new Responsavel { Nome = "Lidianne Samara", CPF = "91566088100", Endereco = "Rua Caceres, qda 1 N 12", CEP = "78068-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99052-1405", TelefoneFixo = "(65)3012-2221"},
-            //new Responsavel { Nome = "Rosidelma Barros", CPF = "78787891919", Endereco = "Rua 40, qda 7 N 24", CEP = "78068-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99941-0765", TelefoneFixo = "(65)3641-1981", CEP = "78068-435" },
-            //new Responsavel { Nome = "Carol Delbianco", CPF = "56564387290", Endereco = "Av Joenville, qda 18 N 10", CEP = "78068-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)98744-1018", TelefoneFixo = "(65)3052-1981"},
-            //new Responsavel { Nome = "Eunice Ramos", CPF = "78120903458", Endereco = "Rua 90, qda 90 N 89", CEP = "78068-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99921-9090", TelefoneFixo = "(65)3062-8119"}
+            //new Responsavel { Nome = "Patricia Souza Gomes", CPF = "98765432109", Endereco = "Rua 10, qda 18 N 25", CEP = "78069-435", Bairro = "Centro", Cidade = "Cuiabá", Celular = "(65)99981-1981", TelefoneFixo = "(65)3042-1981" },
+            //new Responsavel { Nome = "Marcia Freitas", CPF = "73912030497", Endereco = "Rua 3, qda 10 N 3", CEP = "78068-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99243-1234", TelefoneFixo = "(65)3032-2081", },
+            //new Responsavel { Nome = "Alexsandro Moreira", CPF = "69098000100", Endereco = "Rua 125, qda 31 N 15", CEP = "78062-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)98404-1401", TelefoneFixo = "(65)3022-1990" },
+            //new Responsavel { Nome = "Lidianne Samara", CPF = "91566088100", Endereco = "Rua Caceres, qda 1 N 12", CEP = "78061-435", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99052-1405", TelefoneFixo = "(65)3012-2221" },
+            //new Responsavel { Nome = "Rosidelma Barros", CPF = "78787891919", Endereco = "Rua 40, qda 7 N 24", CEP = "78068-422", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99941-0765", TelefoneFixo = "(65)3641-1981", CEP = "78068-435" },
+            //new Responsavel { Nome = "Carol Delbianco", CPF = "56564387290", Endereco = "Av Joenville, qda 18 N 10", CEP = "78068-635", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)98744-1018", TelefoneFixo = "(65)3052-1981" },
+            //new Responsavel { Nome = "Eunice Ramos", CPF = "78120903458", Endereco = "Rua 90, qda 90 N 89", CEP = "78068-425", Bairro = "Bosque da Saude", Cidade = "Cuiabá", Celular = "(65)99921-9090", TelefoneFixo = "(65)3062-8119" }
 
             //);
 
