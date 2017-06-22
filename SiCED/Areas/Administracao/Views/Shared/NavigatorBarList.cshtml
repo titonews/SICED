@@ -1,18 +1,18 @@
 ﻿<ul class="nav nav-list">
 
-        @if (User.IsInRole("Administrador"))
-        {
-                <li class="">
-                    <a href="@Url.Action("Index", "Home")">
-                        <i class="menu-icon fa fa-pencil"></i>
-                        <span class="menu-text"> Página Principal </span>
-                    </a>
+    @if (User.IsInRole("Administrador"))
+    {
+        <li class="">
+            <a href="@Url.Action("Index", "Home")">
+                <i class="menu-icon fa fa-pencil"></i>
+                <span class="menu-text"> Página Principal </span>
+            </a>
 
-                    <b class="arrow"></b>
-                </li>
+            <b class="arrow"></b>
+        </li>
 
                 <li class="">
-                    <a href="#" class="dropdown-toggle">
+                    <a href="@Url.Action("Index", "Aluno")">
                         <i class="menu-icon fa fa-desktop"></i>
                         <span class="menu-text">
                             Alunos
@@ -24,7 +24,7 @@
                     <b class="arrow"></b>
 
                     <ul class="submenu">
-            
+
                         <li class="">
                             <a href="@Url.Action("Create", "Aluno")">
                                 <i class="menu-icon fa fa-caret-right"></i>
@@ -50,33 +50,34 @@
                             </a>
 
                             <b class="arrow"></b>
+                            <a href="@Url.Action("Index", "Disciplina")">
                         </li>
 
                         <li class="">
-                        
+
 
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
-                            
+
 
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
-                            
+
 
                             <b class="arrow"></b>
                         </li>
 
                         <li class="">
-                            
+
 
                             <b class="arrow"></b>
                         </li>
 
-            
+
                     </ul>
                 </li>
 
@@ -110,7 +111,7 @@
                         </li>
                     </ul>
                 </li>
-        }
+    }
 
     <li class="">
         <a href="#" class="dropdown-toggle">
@@ -133,37 +134,25 @@
             </li>
 
             <li class="">
-                <a href="@Url.Action("FormElements2", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Form Elements 2
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("FormWizard", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Wizard &amp; Validation
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("WYSIWYG", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Wysiwyg &amp; Markdown
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Dropzone", "Forms")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Dropzone File Upload
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
@@ -225,55 +214,37 @@
             </li>
 
             <li class="">
-                <a href="@Url.Action("Inbox", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Inbox
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Pricing", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Pricing Tables
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Invoice", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Invoice
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Timeline", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Timeline
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("EmailTemplates", "MorePages" )">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Email Templates
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
 
             <li class="">
-                <a href="@Url.Action("Login", "MorePages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Login &amp; Register
-                </a>
+
 
                 <b class="arrow"></b>
             </li>
