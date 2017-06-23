@@ -13,7 +13,7 @@ namespace Areas.Administracao.Controllers
     public class CursoController : Controller
     {
         private ContextoEF db = new ContextoEF();
-
+        //[Authorize(Roles = "Usuario")]
         // GET: Curso
         public ActionResult Index()
         {
