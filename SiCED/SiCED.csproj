@@ -686,8 +686,8 @@
     <Content Include="Areas\Administracao\Views\Matricula\Details.cshtml" />
     <Content Include="Areas\Administracao\Views\Matricula\Edit.cshtml" />
     <Content Include="Areas\Administracao\Views\Matricula\Index.cshtml" />
-    <Content Include="Areas\Administracao\Views\Matricula\DetailsParaImpressao.cshtml" />
-    <Content Include="Views\Shared\_LayoutParaImpressao.cshtml" />
+    <Content Include="Areas\Administracao\Views\Shared\DetailsParaImpressao.cshtml" />
+    <Content Include="Areas\Administracao\Views\Shared\_LayoutParaImpressao.cshtml" />
     <Content Include="Areas\Administracao\Views\Matricula\CreateParaImpressão .cshtml" />
     <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
