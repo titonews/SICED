@@ -17,84 +17,19 @@
                         <span class="menu-text">
                             Alunos
                         </span>
-
-                        <b class="arrow fa fa-angle-down"></b>
+                       
                     </a>
 
                     <b class="arrow"></b>
 
-                    <ul class="submenu">
-
-                        <li class="">
-                            <a href="@Url.Action("Create", "Aluno")">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Cadastrar
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="@Url.Action("Edit", "Aluno")">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Editar
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="@Url.Action("Delete", "Aluno")">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Excluir
-                            </a>
-
-                            <b class="arrow"></b>
-                            <a href="@Url.Action("Index", "Disciplina")">
-                        </li>
-
-                        <li class="">
-
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-
-
-                            <b class="arrow"></b>
-                        </li>
-
-
-                    </ul>
+                   
                 </li>
 
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                        <i class="menu-icon fa fa-list"></i>
-                        <span class="menu-text"> Responsavel </span>
-
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
+                
+                
                         <li class="">
                             <a href="@Url.Action("Index", "Responsavel")">
-                                <i class="menu-icon fa fa-caret-right"></i>
+                                <i class="menu-icon fa fa-child"></i>
                                 Responsaveis
                             </a>
 
@@ -102,18 +37,29 @@
                         </li>
 
                         <li class="">
-                            <a href="@Url.Action("Create", "Responsavel")">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Cadastrar
-                            </a>
-
+                            
                             <b class="arrow"></b>
                         </li>
-                    </ul>
-                </li>
+                   
     }
 
     <li class="">
+        <a href="@Url.Action("Index", "Professor")">
+            <i class="menu-icon fa fa-graduation-cap"></i>
+            Professor
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+
+    <li class="">
+
+        <b class="arrow"></b>
+    </li>
+
+    
+
+    @*<li class="">
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-pencil-square-o"></i>
             <span class="menu-text"> Professores </span>
@@ -125,11 +71,7 @@
 
         <ul class="submenu">
             <li class="">
-                <a href="@Url.Action("Create", "Professor")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Cadastrar
-                </a>
-
+                
                 <b class="arrow"></b>
             </li>
 
@@ -157,7 +99,7 @@
                 <b class="arrow"></b>
             </li>
         </ul>
-    </li>
+    </li>*@
 
     <li class="">
         <a href="@Url.Action("Index", "Matricula")">
@@ -176,7 +118,7 @@
                 Curso
 
                 <span class="badge badge-transparent tooltip-error" title="2 Important Events">
-                    <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
+                    @*<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>*@
                 </span>
             </span>
         </a>
@@ -194,62 +136,20 @@
     </li>
 
     <li class="">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-tag"></i>
-            <span class="menu-text"> Turma </span>
-
-            <b class="arrow fa fa-angle-down"></b>
-        </a>
-
+       
         <b class="arrow"></b>
 
-        <ul class="submenu">
+        
             <li class="">
-                <a href="@Url.Action("Create", "Turma")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Cadastrar
+                <a href="@Url.Action("Index", "Turma")">
+                    <i class="menu-icon fa fa-id-card-o"></i>
+                    Turma
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-        </ul>
-    </li>
+            
 
     <li class="active open">
         <a href="#" class="dropdown-toggle">
