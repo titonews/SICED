@@ -62,9 +62,12 @@
             @Html.DisplayFor(modelItem => item.DataNascimento)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.AlunoId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.AlunoId }) |
-            @Html.ActionLink("Excluir", "Delete", new { id=item.AlunoId })
+            <a href="@Url.Action("Edit", new { id=item.AlunoId })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+            @*@Html.ActionLink("Editar", "Edit", new { id=item.AlunoId }) |*@
+            <a href="@Url.Action("Details", new { id=item.AlunoId })" title="Detalhes" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
+            @*@Html.ActionLink("Detalhes", "Details", new { id=item.AlunoId }) |*@
+            @*@Html.ActionLink("Excluir", "Delete", new { id=item.AlunoId })*@
+            <a href="@Url.Action("Delete", new { id=item.AlunoId })" title="Excluir" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>
         </td>
     </tr>
 }

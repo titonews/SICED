@@ -7,10 +7,10 @@
 <h2>Cadastrar Professor</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Professor</h4>
         <hr />
@@ -103,9 +103,6 @@
             $("#CEP").mask("99999-999");
             $("#TelefoneFixo").mask("(99)9999-9999");
         });
-
-
     </script>
 }
-
 

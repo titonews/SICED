@@ -16,7 +16,7 @@ namespace SiCED.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "O campo e obrigatótio")]
-        [MinLength(14, ErrorMessage = "O tamanho mínimo são 11 caracteres.")]
+        //[MinLength(14, ErrorMessage = "O tamanho mínimo são 11 caracteres.")]
         [StringLength(14, ErrorMessage = "Limite de 11 caracteres")]
         [Display(Name = "CPF")]
         public string CPF { get; set; }
