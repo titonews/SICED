@@ -2,6 +2,8 @@
 
     @if (User.IsInRole("Administrador"))
     {
+    
+
         <li class="">
             <a href="@Url.Action("Index", "Home")">
                 <i class="menu-icon fa fa-pencil"></i>
@@ -151,7 +153,7 @@
 
             
 
-    <li class="active open">
+    @*<li class="active open">
         <a href="#" class="dropdown-toggle">
             <i class="menu-icon fa fa-file-o"></i>
 
@@ -212,5 +214,5 @@
                 <b class="arrow"></b>
             </li>
         </ul>
-    </li>
+    </li>*@
 </ul><!-- /.nav-list -->
