@@ -33,7 +33,7 @@
             @Html.ActionLink("Nome", "Index", new { ordenacao = ViewBag.NomeParam })
         </th>
         <th>
-           @Html.ActionLink("CPF", "Index", new { ordenacao = ViewBag.CpfParam })
+            @Html.ActionLink("CPF", "Index", new { ordenacao = ViewBag.CpfParam })
         </th>
         <th>
             @Html.DisplayName("Celular")
@@ -44,33 +44,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Responsaveis.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CPF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Celular)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DataNascimento)
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", new { id=item.AlunoId })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
-            @*@Html.ActionLink("Editar", "Edit", new { id=item.AlunoId }) |*@
-            <a href="@Url.Action("Details", new { id=item.AlunoId })" title="Detalhes" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
-            @*@Html.ActionLink("Detalhes", "Details", new { id=item.AlunoId }) |*@
-            @*@Html.ActionLink("Excluir", "Delete", new { id=item.AlunoId })*@
-            <a href="@Url.Action("Delete", new { id=item.AlunoId })" title="Excluir" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsaveis.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id=item.AlunoId })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="@Url.Action("Details", new { id=item.AlunoId })" title="Detalhes" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
+                <a href="@Url.Action("Delete", new { id=item.AlunoId })" title="Excluir" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>
+            </td>
+        </tr>
+    }
 
 </table>
 Página @Model.PageNumber de @Model.PageNumber
