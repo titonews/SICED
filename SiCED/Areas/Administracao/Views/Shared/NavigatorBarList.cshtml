@@ -1,7 +1,7 @@
 ﻿<ul class="nav nav-list">
 
-    @if (User.IsInRole("Administrador"))
-    {
+    @*@if (User.IsInRole("Administrador"))
+    {*@
     
 
         <li class="">
@@ -42,8 +42,8 @@
                             
                             <b class="arrow"></b>
                         </li>
-                   
-    }
+
+    @*}*@
 
     <li class="">
         <a href="@Url.Action("Index", "Professor")">
@@ -144,14 +144,23 @@
         
             <li class="">
                 <a href="@Url.Action("Index", "Turma")">
-                    <i class="menu-icon fa fa-id-card-o"></i>
+                    <i class="menu-icon fa fa-users"></i>
                     Turma
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
-            
+    <li class="">
+        <a href="@Url.Action("Index", "UsersAdmin")">
+            <i class="menu-icon fa fa-lock"></i>
+            <span class="menu-text"> UsersAdmin </span>
+        </a>
+
+        <b class="arrow"></b>
+    </li>
+
+  
 
     @*<li class="active open">
         <a href="#" class="dropdown-toggle">
