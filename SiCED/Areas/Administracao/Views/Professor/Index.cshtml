@@ -84,9 +84,7 @@
             <a href="@Url.Action("Edit", new { id=item.ProfessorId })" title="Editar" class="btn btn-info"><i class="glyphicon glyphicon-edit"></i></a>
             <a href="@Url.Action("Details", new { id=item.ProfessorId })" title="Detalhes" class="btn btn-warning"><i class="glyphicon glyphicon-eye-open"></i></a>
             @*<a href="@Url.Action("Delete", new { id=item.AlunoId })" title="Excluir" class="btn btn-danger"><i class="glyphicon glyphicon-remove-circle"></i></a>*@
-            @Html.ActionLink("Editar", "Edit", new { id=item.ProfessorId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.ProfessorId }) |
-            @*@Html.ActionLink("Excluir", "Delete", new { id=item.ProfessorId })*@
+           
         </td>
     </tr>
 }
