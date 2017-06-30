@@ -1,107 +1,38 @@
 ﻿<ul class="nav nav-list">
 
-    @*@if (User.IsInRole("Administrador"))
-    {*@
-    
+    <li class="">
+        <a href="@Url.Action("Index", "Home")">
+            <i class="menu-icon fa fa-pencil"></i>
+            <span class="menu-text"> Página Principal </span>
+        </a>
 
-        <li class="">
-            <a href="@Url.Action("Index", "Home")">
-                <i class="menu-icon fa fa-pencil"></i>
-                <span class="menu-text"> Página Principal </span>
-            </a>
+        <b class="arrow"></b>
+    </li>
 
-            <b class="arrow"></b>
-        </li>
-
-                <li class="">
-                    <a href="@Url.Action("Index", "Aluno")">
-                        <i class="menu-icon fa fa-desktop"></i>
-                        <span class="menu-text">
-                            Alunos
-                        </span>
-                       
-                    </a>
-
-                    <b class="arrow"></b>
-
-                   
-                </li>
-
-                
-                
-                        <li class="">
-                            <a href="@Url.Action("Index", "Responsavel")">
-                                <i class="menu-icon fa fa-child"></i>
-                                Responsaveis
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            
-                            <b class="arrow"></b>
-                        </li>
-
-    @*}*@
 
     <li class="">
-        <a href="@Url.Action("Index", "Professor")">
-            <i class="menu-icon fa fa-graduation-cap"></i>
-            Professor
+        <a href="@Url.Action("Index", "Responsavel")">
+            <i class="menu-icon fa fa-child"></i>
+            Responsaveis
         </a>
 
         <b class="arrow"></b>
     </li>
 
     <li class="">
+        <a href="@Url.Action("Index", "Aluno")">
+            <i class="menu-icon fa fa-desktop"></i>
+            <span class="menu-text">
+                Alunos
+            </span>
 
-        <b class="arrow"></b>
-    </li>
-
-    
-
-    @*<li class="">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-pencil-square-o"></i>
-            <span class="menu-text"> Professores </span>
-
-            <b class="arrow fa fa-angle-down"></b>
         </a>
 
         <b class="arrow"></b>
 
-        <ul class="submenu">
-            <li class="">
-                
-                <b class="arrow"></b>
-            </li>
 
-            <li class="">
+    </li>
 
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-
-
-                <b class="arrow"></b>
-            </li>
-        </ul>
-    </li>*@
 
     <li class="">
         <a href="@Url.Action("Index", "Matricula")">
@@ -112,116 +43,68 @@
         <b class="arrow"></b>
     </li>
 
-    <li class="">
-        <a href="@Url.Action("Index", "Curso")">
-            <i class="menu-icon fa fa-calendar"></i>
 
-            <span class="menu-text">
-                Curso
+    @if (User.IsInRole("Administrador"))
+    {
 
-                <span class="badge badge-transparent tooltip-error" title="2 Important Events">
-                    @*<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>*@
+
+        <li class="">
+            <a href="@Url.Action("Index", "Professor")">
+                <i class="menu-icon fa fa-graduation-cap"></i>
+                Professor
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Index", "Curso")">
+                <i class="menu-icon fa fa-calendar"></i>
+
+                <span class="menu-text">
+                    Curso
+
+                    <span class="badge badge-transparent tooltip-error" title="2 Important Events">
+                        @*<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>*@
+                    </span>
                 </span>
-            </span>
-        </a>
+            </a>
 
-        <b class="arrow"></b>
-    </li>
+            <b class="arrow"></b>
+        </li>
 
-    <li class="">
-        <a href="@Url.Action("Index", "Disciplina")">
-            <i class="menu-icon fa fa-picture-o"></i>
-            <span class="menu-text"> Disciplinas </span>
-        </a>
+        <li class="">
+            <a href="@Url.Action("Index", "Disciplina")">
+                <i class="menu-icon fa fa-picture-o"></i>
+                <span class="menu-text"> Disciplinas </span>
+            </a>
 
-        <b class="arrow"></b>
-    </li>
+            <b class="arrow"></b>
+        </li>
 
-    <li class="">
-       
-        <b class="arrow"></b>
 
-        
+        <li class="">
+            <a href="@Url.Action("Index", "Turma")">
+                <i class="menu-icon fa fa-users"></i>
+                Turma
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
             <li class="">
-                <a href="@Url.Action("Index", "Turma")">
-                    <i class="menu-icon fa fa-users"></i>
-                    Turma
+                <a href="@Url.Action("Index", "UsersAdmin")">
+                    <i class="menu-icon fa fa-lock"></i>
+                    <span class="menu-text"> UsersAdmin </span>
                 </a>
 
                 <b class="arrow"></b>
             </li>
 
-    <li class="">
-        <a href="@Url.Action("Index", "UsersAdmin")">
-            <i class="menu-icon fa fa-lock"></i>
-            <span class="menu-text"> UsersAdmin </span>
-        </a>
 
-        <b class="arrow"></b>
-    </li>
+    }
+
+    
 
   
-
-    @*<li class="active open">
-        <a href="#" class="dropdown-toggle">
-            <i class="menu-icon fa fa-file-o"></i>
-
-            <span class="menu-text">
-                Other Pages
-
-                <span class="badge badge-primary">5</span>
-            </span>
-
-            <b class="arrow fa fa-angle-down"></b>
-        </a>
-
-        <b class="arrow"></b>
-
-        <ul class="submenu">
-            <li class="">
-                <a href="@Url.Action("FAQ", "OtherPages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    FAQ
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Error404", "OtherPages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Error 404
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Error500", "OtherPages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Error 500
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="">
-                <a href="@Url.Action("Grid", "OtherPages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Grid
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-
-            <li class="active">
-                <a href="@Url.Action("Blank", "OtherPages")">
-                    <i class="menu-icon fa fa-caret-right"></i>
-                    Blank Page
-                </a>
-
-                <b class="arrow"></b>
-            </li>
-        </ul>
-    </li>*@
 </ul><!-- /.nav-list -->
